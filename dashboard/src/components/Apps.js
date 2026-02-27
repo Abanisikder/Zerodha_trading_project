@@ -5,7 +5,7 @@ export default function Apps()
     return(
         <>
         
-        <Dashboard/>
+        <h1>Apps</h1>
         </>
     )
 }
