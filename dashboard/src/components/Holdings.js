@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from "react";
-import axios, { all } from "axios";
-
+import { holdings } from "../components/Data/data";
 
 const Holdings = () => {
-  
   return (
     <>
+      <h3 className="title">Holdings({holdings.length})</h3>
       <div className="order-table">
         <table>
-          <tr>
+          <tr >
             <th>Instrument</th>
             <th>Qty.</th>
             <th>Avg. cost</th>
@@ -18,6 +16,31 @@ const Holdings = () => {
             <th>Net chg.</th>
             <th>Day chg.</th>
           </tr>
+          {holdings.map((stock, index) => {
+            const currValue = stock.price * stock.qty;
+            const isProfit = currValue - stock.avg * stock.qty >= 0.0;
+            const profClass = isProfit ? "profit" : "loss";
+            const dayClass = stock.isLoss ? "loss" : "profit";
+            return (
+              <>
+                <tr key={index}>
+                  <td>{stock.name}</td>
+                  <td>{stock.name}</td>
+                  <td>{stock.avg.toFixed(2)}</td>
+                  <td>{stock.price.toFixed(2)}</td>
+                  <td>{currValue.toFixed(2)}</td>
+                  <td className={profClass}>
+                    {
+                      (currValue-stock.avg*stock.qty).toFixed(2)
+                    }
+
+                  </td>
+                  <td className={profClass}>{stock.net}</td>
+                  <td className={dayClass}>{stock.day}</td>
+                </tr>
+              </>
+            );
+          })}
         </table>
       </div>
 
@@ -39,7 +62,6 @@ const Holdings = () => {
           <p>P&L</p>
         </div>
       </div>
-    
     </>
   );
 };
