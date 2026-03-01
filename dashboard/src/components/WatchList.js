@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { Tooltip, Grow } from "@mui/material";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import BarChartOutlinedIcon from '@mui/icons-material/BarChartOutlined';
+import MoreHoriz from '@mui/icons-material/MoreHoriz';
 export default function WatchList() {
   return (
     <>
@@ -49,6 +51,55 @@ const WatchListItem = ({ stack }) => {
           <span className="price">{stack.price}</span>
         </div>
       </div>
+      {showWatchListAction && <WatchListActions id={stack.name}/>}
     </li>
   );
 };
+const WatchListActions=({id})=>{
+  return(
+    <>
+      <span className="actions">
+        <span>
+          <Tooltip
+          title="Buy(B)"
+          placement="top"
+          arrow
+          TransitionComponent={Grow}
+
+          >
+            <button className="buy">Buy</button>
+          </Tooltip>
+          <Tooltip
+          title="sell"
+          placement="top"
+          arrow
+          TransitionComponent={Grow}
+
+          >
+            <button className="sell">Sell</button>
+          </Tooltip>
+          
+           <Tooltip
+          title="Analytics"
+          placement="top"
+          arrow
+          TransitionComponent={Grow}
+
+          >
+            <button className="action"><BarChartOutlinedIcon className="icon"/></button>
+          </Tooltip>
+           <Tooltip
+          title="more"
+          placement="top"
+          arrow
+          TransitionComponent={Grow}
+
+          >
+            <button className="sell"><MoreHoriz/></button>
+          </Tooltip>
+        </span>
+
+      </span>
+    </>
+  )
+}
