@@ -2,16 +2,16 @@ const{Schema}=require("mongoose");
 const OrderSchemas=new Schema({
     name:{
         type:String,
-        required,
+        required:true,
     },
     qty:{
         type:Number,
-        required,
+        required:true,
         min:0,
     },
     price:{
         type:Number,
-        required,
+        required:true,
     },
     mode:{
         type:String,

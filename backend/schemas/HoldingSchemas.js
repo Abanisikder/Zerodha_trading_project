@@ -3,7 +3,7 @@ const HoldingSchemas=new Schema({
     name: {
         type:String,
         maxLength:50,
-        required,
+        required:true,
     },
     qty: {
         type:Number,
@@ -15,7 +15,7 @@ const HoldingSchemas=new Schema({
     },
     price: {
         type:Number,
-        required,
+        required:true,
         default:0,
         min:0,
     },

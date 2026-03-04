@@ -2,18 +2,18 @@ const {Schema}=require("mongoose");
 const PositionSchemas=new Schema({
      product: {
         type:String,
-        required,
+        required:true,
          maxLength:50,
 
      },
     name: {
         type:String,
-        required,
+        required:true,
     },
     qty: {
         type:Number,
         min:0,
-        required,
+        required:true,
         default:0,
     },
     avg: {
@@ -21,7 +21,7 @@ const PositionSchemas=new Schema({
     },
     price: {
         type:Number,
-        required,
+        required:true,
         min:0,
     },
     net:{
