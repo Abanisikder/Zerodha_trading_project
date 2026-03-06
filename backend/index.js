@@ -5,7 +5,12 @@ const{PositionModel}=require("./models/PositionModel")
 const mongoose=require("mongoose");
 const PORT=process.env.PORT || 3002;
 const URL=process.env.MONGO_URL;
+const bodyParser=require("body-parser");
+const cors=require("cors");
+
 const app=express();
+app.use(cors());
+app.use(bodyParser.json());
 mongoose.connect(URL).then((res)=>{
     console.log("database connection successfull")
 })
@@ -175,6 +180,15 @@ mongoose.connect(URL).then((res)=>{
 // })
 // res.send("data was added succssfully");
 // })
+app.get("/allHoldings", async(req,res)=>{
+    let allHolding= await HoldingModel.find({});
+    res.json(allHolding)
+
+})
+app.get("/allPositions",async(req,res)=>{
+    let allPosition=await PositionModel.find({});
+    res.json(allPosition);
+})
 app.listen(PORT,()=>{
     console.log("app is listening");
 })
