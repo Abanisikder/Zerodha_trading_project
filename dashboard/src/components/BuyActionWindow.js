@@ -10,8 +10,7 @@ import "./BuyActionWindow.css";
 const BuyActionWindow = ({ uid }) => {
   
 
-    GeneralContext.closeBuyWindow();
-  };
+ 
 
   const handleCancelClick = () => {
     GeneralContext.closeBuyWindow();
@@ -46,7 +45,7 @@ const BuyActionWindow = ({ uid }) => {
       <div className="buttons">
         <span>Margin required ₹140.65</span>
         <div>
-          <Link className="btn btn-blue" onClick={handleBuyClick}>
+          <Link className="btn btn-blue" >
             Buy
           </Link>
           <Link to="" className="btn btn-grey" onClick={handleCancelClick}>
