@@ -8,13 +8,13 @@ import Orders from "./Orders";
 import Positions from "./Positions";
 import Summary from "./Summary";
 import WatchList from "./WatchList";
-// এখানে { } ছাড়া ইম্পোর্ট করুন যদি default export হয়ে থাকে
+
 import { GeneralContextProvider } from "./GeneralContext"; 
 
 const Dashboard = () => {
   return (
     <div className="dashboard-container">
-      {/* পুরো এরিয়াকে একটি প্রোভাইডার দিয়ে মুড়িয়ে দিন */}
+     
       <GeneralContextProvider>
         
         <WatchList />
