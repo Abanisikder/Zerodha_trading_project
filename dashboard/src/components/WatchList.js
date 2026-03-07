@@ -5,6 +5,8 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import BarChartOutlinedIcon from '@mui/icons-material/BarChartOutlined';
 import MoreHoriz from '@mui/icons-material/MoreHoriz';
+import { useContext } from "react";
+import GeneralContext from "./GeneralContext";
 export default function WatchList() {
   return (
     <>
@@ -56,6 +58,7 @@ const WatchListItem = ({ stack }) => {
   );
 };
 const WatchListActions=({id})=>{
+  const { openBuyWindow } = useContext(GeneralContext);
   return(
     <>
       <span className="actions">
@@ -67,7 +70,7 @@ const WatchListActions=({id})=>{
           TransitionComponent={Grow}
 
           >
-            <button className="buy">Buy</button>
+            <button className="buy"onClick={() => openBuyWindow(id)}>Buy</button>
           </Tooltip>
           <Tooltip
           title="sell"
