@@ -200,6 +200,11 @@ app.post("/newOrder",async(req,res)=>{
     order.save();
     res.send("order was saved successfully");
 })
+app.get("/allOrder",async(req,res)=>{
+    let order=await OrderModel.find({});
+    res.json(order);
+
+})
 app.listen(PORT,()=>{
     console.log("app is listening");
 })
