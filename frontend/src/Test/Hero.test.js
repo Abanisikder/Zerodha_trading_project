@@ -15,4 +15,14 @@ describe('Hero component', () => {
         expect(heroImage).toBeInTheDocument();
         expect(heroImage).toHaveAttribute("src", "media/images/homeHero.png");
     });
+   test('renders the "SignUp Now" button correctly', () => {
+    render(<Hero />);
+    
+    // ভ্যারিয়েবলের নাম দিলাম signupButton
+    const signupButton = screen.getByRole('button', { name: /signup now/i });
+    
+    // এখন সব জায়গায় signupButton নামেই ব্যবহার করতে হবে
+    expect(signupButton).toBeInTheDocument();
+    expect(signupButton).toHaveClass('btn-primary'); 
+});
 });
