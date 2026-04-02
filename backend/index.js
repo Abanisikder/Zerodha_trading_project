@@ -8,7 +8,7 @@ const PORT=process.env.PORT || 3002;
 const URL=process.env.MONGO_URL;
 const bodyParser=require("body-parser");
 const cors=require("cors");
-const authRoute = require("./routes/AuthRoute");
+const AuthRoute = require("./routes/AuthRoute");
 
 const app=express();
 app.use(cors());
@@ -206,7 +206,7 @@ app.get("/allOrder",async(req,res)=>{
     res.json(order);
 
 })
-app.use("/", authRoute);
+app.use("/", AuthRoute);
 app.listen(PORT,()=>{
     console.log("app is listening");
 })
